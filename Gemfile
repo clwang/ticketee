@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'pg'
 gem 'dynamic_form'
 gem 'devise', '~> 1.4.3'
+gem 'email_spec'
 
 # Gems used only for assets and not required
 # in production environments by default.
