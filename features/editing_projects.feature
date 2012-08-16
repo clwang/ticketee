@@ -10,12 +10,20 @@ Feature: Editing projects
     And I follow "Edit Project"
     
   Scenario: Updating a project
+    Given there are the following users:
+    | email | password | admin |
+    | admin@ticketee.com | password | true |
+    And I am signed in as them
     And I fill in "Name" with "TextMate 2 beta"
     And I press "Update Project"
     Then I should see "Project has been updated."
     And I should be on the project page for "TextMate 2 beta"
 
   Scenario: Updating a project with invalid attributes is bad
+    Given there are the following users:
+      | email | password | admin |
+      | admin@ticketee.com | password | true |
+    And I am signed in as them
     And I fill in "Name" with ""
     And I press "Update Project"
     Then I should see "Project has not been updated."

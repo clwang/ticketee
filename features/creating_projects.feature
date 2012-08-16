@@ -4,6 +4,10 @@ Feature: Creating projects
   I want to create them easily
 
   Background:
+    Given there are the following users:
+      | email | password | admin |
+      | admin@ticketee.com | password | true |
+    And I am signed in as them
     Given I am on the homepage
     When I follow "New Project"
 
@@ -18,5 +22,3 @@ Feature: Creating projects
     And I press "Create Project"
     Then I should see "Project has not been created."
     And I should see "Name can't be blank"
-
-
