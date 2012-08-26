@@ -1,8 +1,7 @@
 class Ability
   include CanCan::Ability
-
-  def initialze(user)
-    p user.permissions
+  
+  def initialize(user)
     user.permissions.each do |permission|
       can permission.action.to_sym, permission.thing_type.constantize do |thing|
         thing.nil? ||
