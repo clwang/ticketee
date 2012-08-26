@@ -4,6 +4,9 @@ Ticketee::Application.routes.draw do
 
   get '/awaiting_confirmation', :to => "users#confirmation", :as => "confirm_user"
   put '/admin/users/:user_id/permissions', :to => "admin/permissions#update", :as => "update_user_permissions"
+
+  resources :files
+
   resources :projects do
     resources :tickets
   end
