@@ -10,6 +10,7 @@ Feature: Creating comments
     And I am signed in as them
     And there is a project called "Ticketee"
     And "user@ticketee.com" can view the "Ticketee" project
+    #And "user@ticketee.com" can change states on the "Ticketee" project
     And "user@ticketee.com" has created a ticket for this project:
       | title                   | description                            |
       | Change a ticket's state | You should be able to create a comment |
@@ -39,3 +40,7 @@ Feature: Creating comments
     Then I should see "Comment has been created."
     And I should see "Open" within "#ticket .state"
     Then I should see "Open" within "#comments"
+
+  Scenario: A user without permission cannot change the state
+    When I follow "Change a ticket's state"
+    Then I should not see the "#comment_state_id" element
